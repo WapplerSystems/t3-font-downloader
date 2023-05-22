@@ -1,0 +1,36 @@
+{
+    "name": "wapplersystems/font-downloader",
+    "description": "Font downloader for TYPO3",
+    "type": "typo3-cms-extension",
+    "homepage": "https://wappler.systems",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "google",
+        "fonts"
+    ],
+    "require": {
+        "typo3/cms-core": "^12",
+        "php": "^8.0 || ^8.1 || ^8.2"
+    },
+    "replace": {
+    },
+    "autoload": {
+        "psr-4": {
+            "WapplerSystems\\FontDownloader\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "font_downloader"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sven Wappler",
+            "role": "Developer",
+            "homepage": "https://wappler.systems"
+        }
+    ]
+}

@@ -6,3 +6,8 @@ services:
 
   WapplerSystems\FontDownloader\:
     resource: '../Classes/*'
+
+  WapplerSystems\FontDownloader\FontLoader\FontLoaderRegistry:
+    public: true
+    arguments:
+      - !tagged_iterator fontloader

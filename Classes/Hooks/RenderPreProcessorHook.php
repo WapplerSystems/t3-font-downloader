@@ -50,7 +50,7 @@ class RenderPreProcessorHook
         $cache = GeneralUtility::makeInstance(CacheManager::class)->getCache('font-downloader');
 
         $cssFiles = $params['cssFiles'];
-        foreach ($cssFiles as $file => $conf) {
+        foreach ($cssFiles as $file => $cssFile) {
 
             if (!str_starts_with($file,'https://') && !str_starts_with($file,'http://')) {
                 continue;

@@ -74,7 +74,7 @@ abstract class AbstractFontLoader implements FontLoaderInterface
 
     private function getFilePath(string $url, string $extensionFallback = ''): ?string
     {
-        $path = sprintf('%s/typo3temp/font-loader/', Environment::getPublicPath());
+        $path = sprintf('%s/typo3temp/assets/font-loader/', Environment::getPublicPath());
 
         if (!is_dir($path)) {
             GeneralUtility::mkdir_deep($path);

@@ -7,6 +7,9 @@ services:
   WapplerSystems\FontDownloader\:
     resource: '../Classes/*'
 
+  WapplerSystems\FontDownloader\Hooks\RenderPreProcessorHook:
+    public: true
+
   WapplerSystems\FontDownloader\FontLoader\FontLoaderRegistry:
     public: true
     arguments:

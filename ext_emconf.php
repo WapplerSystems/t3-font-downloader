@@ -2,7 +2,7 @@
 
 $EM_CONF['font_downloader'] = [
     'title' => 'Font downloader for TYPO3',
-    'description' => '',
+    'description' => 'Automatically downloads external CSS fonts (Google Fonts, Font Awesome, ...) and serves them locally for GDPR compliance',
     'category' => 'fe',
     'version' => '14.0.0',
     'state' => 'stable',

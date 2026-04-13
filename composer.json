@@ -1,14 +1,17 @@
 {
     "name": "wapplersystems/font-downloader",
-    "description": "Font downloader for TYPO3",
+    "description": "Automatically downloads external CSS fonts (Google Fonts, Font Awesome, ...) and serves them locally for GDPR compliance",
     "type": "typo3-cms-extension",
     "homepage": "https://wappler.systems",
     "license": "GPL-2.0-or-later",
     "keywords": [
         "TYPO3",
         "extension",
-        "google",
-        "fonts"
+        "google-fonts",
+        "font-awesome",
+        "gdpr",
+        "privacy",
+        "local-fonts"
     ],
     "require": {
         "typo3/cms-core": "^14"

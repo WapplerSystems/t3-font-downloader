@@ -83,11 +83,30 @@ abstract class AbstractFontLoader implements FontLoaderInterface
         return $path . md5($url) . (($extension = (pathinfo($this->cleanFileName($url), PATHINFO_EXTENSION)) ?: $extensionFallback) ? '.' . $extension : '');
     }
 
+    /**
+     * Fetches the stylesheet itself. Loaders override this when the provider
+     * answers differently depending on the client (see GoogleFontLoader).
+     */
+    protected function fetchCss(string $url): string|false
+    {
+        return GeneralUtility::getUrl($url);
+    }
+
+    /**
+     * Key the cached stylesheet is stored under. Changing it for a loader
+     * makes existing installations fetch the stylesheet again instead of
+     * keeping a cached copy built with the old behaviour.
+     */
+    protected function getCacheKey(string $url): string
+    {
+        return $url;
+    }
+
     public function load(string $url): string
     {
-        $filePath = $this->getFilePath($url, 'css');
+        $filePath = $this->getFilePath($this->getCacheKey($url), 'css');
 
-        if (!file_exists($filePath) && $content = GeneralUtility::getUrl($url)) {
+        if (!file_exists($filePath) && $content = $this->fetchCss($url)) {
             $content = $this->loadFontsFromCss($content, $url);
 
             $this->writeFile($filePath, $content);

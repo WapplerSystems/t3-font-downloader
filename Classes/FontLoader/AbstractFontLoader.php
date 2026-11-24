@@ -112,7 +112,11 @@ abstract class AbstractFontLoader implements FontLoaderInterface
             $this->writeFile($filePath, $content);
         }
 
-        return PathUtility::getAbsoluteWebPath($filePath);
+        // Hand the PageRenderer a path relative to the public directory, not an
+        // absolute web path: TYPO3 14's SystemResourceFactory probes leading-slash
+        // strings with file_exists(), which raises an open_basedir warning on every
+        // request on hosts that restrict it (e.g. Plesk).
+        return PathUtility::stripPathSitePrefix($filePath);
     }
 
 
